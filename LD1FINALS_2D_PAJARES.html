@@ -1,0 +1,42 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+    function loginn() {
+        let cuname = "joshua";
+        let cpass = "josh";
+        let attempts = 0;
+    
+        for (let i = 0; i < 2; i++) {
+            let username = prompt("Enter username: ");
+            let password = prompt("Enter password:");
+    
+            if(username === cuname && password === cpass) {
+                alert('Login success');
+                 window.location.href = "file:///C:/PAJARES,JOSHUA/LD2_PAJARES_JOSHUA_2D.html";
+                 localStorage.setItem("loggedIn","true");
+                return;
+            } else {
+                alert('Incorrect username or password. Try again.');
+                attempts++;
+            } 
+            if(attempts === 2) {
+                alert('You have made two incorrect attempts. PLease try again in 10 seconds');
+                setTimeout(function() {
+                    alert('You can try again now.');
+                    loginn();
+                }, 10000);
+                return;
+            }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loginn()" class = "logs">
+    
+</body>
+</html>
